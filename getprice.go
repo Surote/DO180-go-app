@@ -28,6 +28,7 @@ func main() {
 	}
 
 	http.HandleFunc("/hello", HelloServer)
+	http.HandleFunc("/hello-trigger", HelloServerTrigger)
 	http.HandleFunc("/redis", GetRedis)
 	http.HandleFunc("/", GetPrice)
 
@@ -37,6 +38,12 @@ func main() {
 func HelloServer(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w, "Your path is , %s!", r.URL.Path[1:])
+	fmt.Println(r.URL)
+}
+
+func HelloServerTrigger(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Fprintf(w, "Your trigger path is , %s!", r.URL.Path[1:])
 	fmt.Println(r.URL)
 }
 
