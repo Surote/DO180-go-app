@@ -20,6 +20,7 @@ var client = redis.NewClient(&redis.Options{
 	DB:       0,
 })
 
+
 func main() {
 	srv := &http.Server{
 		Addr:         ":8020",
